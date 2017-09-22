@@ -1,0 +1,15 @@
+<%= form_with(model: [@recipe, ingredient], local: true) do |form| %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :ingredient_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amount %>
+    <%= form.text_field :amount, id: :ingredient_amount %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit("Add Ingredients") %>
+  </div>
+<% end %>

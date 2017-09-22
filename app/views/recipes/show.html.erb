@@ -1,4 +1,27 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <strong>Name:</strong>
+  <%= @recipe.name %>
+</p>
+
+<% unless @recipe.steps.empty? %>
+  <p>
+    <strong>Steps:</strong>
+    <%= @recipe.step_names %>
+  </p>
+  <% else %>
+  <p>This recipe has no steps.</p>
+<% end %>
+
+<% unless @recipe.ingredients.empty? %>
+  <p>
+    <strong>Ingredients:</strong>
+    <%= @recipe.ingredient_names %>
+  </p>
+  <% else %>
+  <p>This recipe has no ingredients.</p>
+<% end %>
+
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Back', recipes_path %>
