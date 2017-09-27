@@ -13,7 +13,7 @@
     <% @recipes.each do |recipe| %>
       <tr>
         <td><%= recipe.name %></td>
-        <td><%= recipe.step_descriptions %></td>
+        <td><%= recipe.step_names %></td>
         <td><%= recipe.ingredient_names %></td>
         <td><%= link_to 'Show', recipe %></td>
         <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>

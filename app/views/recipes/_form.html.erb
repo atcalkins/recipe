@@ -15,7 +15,22 @@
     <%= form.label :name %>
     <%= form.text_field :name, id: :recipe_name %>
   </div>
-  
+
+  <div class="field">
+    <%= form.label :ingredients %>
+    <%= form.text_field :name, id: :ingredient_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amount %>
+    <%= form.text_field :amount, id: :ingredient_amount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :step_description %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

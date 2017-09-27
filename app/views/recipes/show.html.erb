@@ -1,27 +1,43 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>| Name of Recipe |</strong>
+  <br>
   <%= @recipe.name %>
 </p>
+<p>
+  <strong>| Ingredients |</strong>
+  <table>
+    <tr>
+        <th>| Name |</th>
+        <th>| Amount |</th>
+    </tr>
+    <tbody>
+      <% @recipe.ingredients.each do |ingredient| %>
+      <tr>
+        <td><%= ingredient.name %></td>
+        <td><%= ingredient.amount %> </td>
+        <td><%= link_to 'Edit', edit_recipe_ingredient_path(params[:id], ingredient) %></td>
+        <td><%= link_to 'Delete', recipe_ingredient_path(params[:id], ingredient), method: :delete, data: { confirm: 'Are you sure?'} %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <p><%= link_to 'Add Ingredient', new_recipe_ingredient_path(@recipe) %></p>
+</p>
 
-<% unless @recipe.steps.empty? %>
-  <p>
-    <strong>Steps:</strong>
-    <%= @recipe.step_names %>
-  </p>
-  <% else %>
-  <p>This recipe has no steps.</p>
-<% end %>
-
-<% unless @recipe.ingredients.empty? %>
-  <p>
-    <strong>Ingredients:</strong>
-    <%= @recipe.ingredient_names %>
-  </p>
-  <% else %>
-  <p>This recipe has no ingredients.</p>
-<% end %>
-
+<p>
+  <strong>| Recipe Steps |</strong>
+    <ol>
+      <% @recipe.steps.each do |step| %>
+          <li>
+            <%= step.description %>
+            <%= link_to 'Edit', edit_recipe_step_path(params[:id], step) %>
+            <%= link_to 'Delete', recipe_step_path(params[:id], step), method: :delete, data: { confirm: 'Are you sure?'} %>
+          </li>
+      <% end %>
+    </ol>
+  <p><%= link_to 'Add Step', new_recipe_step_path(@recipe) %></p>
+</p>
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-<%= link_to 'Back', recipes_path %>
+<%= link_to 'Back', recipes_path %><p id="notice"><%= notice %></p>
